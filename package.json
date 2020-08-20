@@ -1,26 +1,14 @@
 {
-  "name": "mementobook",
+  "name": "friendbook",
   "version": "1.0.0",
-  "description": "Let's share your special memories to the world and explore the world",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
     "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mukulsitap/MementoBook.git"
-  },
-  "keywords": [
-    "social",
-    "media", "mementobook"
-  ],
-  "author": "Mukul Sitap",
+  "author": "mukul",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mukulsitap/MementoBook/issues"
-  },
-  "homepage": "https://github.com/mukulsitap/MementoBook#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "body-parser": "^1.19.0",
