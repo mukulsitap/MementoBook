@@ -1,0 +1,36 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    
+    <div style="width: 100%; margin: 0 auto; margin: 5% auto; text-align: center;">
+      <h3 style="margin: 0 0 0 9%;">Update <%= postss.name %></h3>
+   <form action="/<%= postss._id %>?_method=PUT" method="POST" style="width: 50%; margin: 0 auto; padding: 2%;">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" name="postsss[name]" value="<%= postss.name %>" placeholder = "title" class="form-control" id="inputEmail3">
+    </div>
+  </div>
+ <!-- <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Image</label>
+    <div class="col-sm-10">
+      <input type="text" name="postsss[image]" value="<%= postss.image %>" placeholder = "image" class="form-control" id="inputPassword3">
+    </div>
+  </div> !-->
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+       <textarea name="postsss[description]" placeholder = "description" class="form-control" id="description" rows="4"> <%= postss.description %> </textarea>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+</div>
+<hr>
+     <a href="/postpage/<%= postss._id %>">Go back</a>
+</div>
+<%- include("../partials/footer") %>

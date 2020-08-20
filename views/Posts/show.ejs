@@ -1,0 +1,61 @@
+<%- include("../partials/header") %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">MementoBook</p>
+                <div class="list-group">
+                    <li class="list-group-item active"><%= foundPosts.name %></li>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="img-thumbnail">
+                    <img class="img-fluid" src="<%= foundPosts.image %>">
+                    <div class="caption-full">
+                         <h4 class="float-right">#</h4>
+                        <h4 class=""><a href="#"><%= foundPosts.name %></a></h4>
+                       
+                        <p><%= foundPosts.description %></p>
+                        <p>
+                            <em>Created by - <strong><%= foundPosts.author.username %></strong>  </em> at <%= foundPosts.createdAt.toISOString().substring(0, 10); %>
+                        </p>
+                        <% if(currentUser && foundPosts.author.id.equals(currentUser._id)){ %>
+                            <a class="btn btn-warning" href="/postpage/<%= foundPosts._id %>/edit">Edit</a>
+                            <form class="delete-form" action="/postpage/<%= foundPosts._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger"> Delete</button>
+                            </form>
+                        <% }%>
+                    </div>
+                </div>
+                <br>
+        <div class="card card-body bg-light">
+            <div class="text-right">
+                <a href="/postpage/<%= foundPosts._id %>/comments/new" class="btn btn-success">comment</a>
+            </div>
+                <hr>
+                <% foundPosts.comments.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%= comment.author.username %></strong>
+                        <span class="float-right">
+                            <%= comment.createdAt.toISOString().substring(0, 10); %>
+                        </span>
+                        <p>
+                            <%= comment.text %>
+                        </p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                        <a class="btn btn-xs btn-warning"
+                        href="/postpage/<%= foundPosts._id %>/<%=comment._id%>/edit">edit</a>
+                        <form class="delete-form" action="/postpage/<%= foundPosts._id %>/<%=comment._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">delete</button>
+                        </form>
+                        <% }%>
+                    </div>
+                </div>
+               <% }) %>
+            </div>
+            </div>
+        </div>
+       
+    </div>
+
+<%- include("../partials/footer") %>

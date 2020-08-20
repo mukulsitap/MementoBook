@@ -1,0 +1,38 @@
+.img-thumbnail img{
+    width: 100%;
+}
+
+.img-thumbnail{
+    padding: 0;
+}
+
+.img-thumbnail .caption-full {
+    padding: 12px;
+}
+
+.delete-form{
+    display: inline;
+}
+
+#comment-form{
+    top: 20%;
+    width: 50%; 
+    margin: 0 auto;
+}
+
+.col-form-label{
+    width: 100%;
+}
+
+#comment-div{
+     width: 100%;
+     margin: 20px auto;
+     text-align: center;
+}
+
+#postpage-img {
+    width:  100%;
+    height: 200px;
+    background-size: cover;
+
+}
