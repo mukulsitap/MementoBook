@@ -16,7 +16,8 @@ var commentRoutes = require("./routes/comments"),
 	postpageRoutes = require("./routes/postpage"),
 	authRoutes = require("./routes/auth");
 
-mongoose.connect("mongodb://localhost/sharebook");
+mongoose.connect("mongodb+srv://mukulsitap:mukulsitap@mementobook.ap43y.mongodb.net/MementoBook?retryWrites=true&w=majority");
+//mongodb+srv://mukulsitap:mukulsitap@mementobook.ap43y.mongodb.net/<dbname>?retryWrites=true&w=majority
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
