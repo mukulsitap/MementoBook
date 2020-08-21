@@ -55,7 +55,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
 	res.redirect("/login");
 };
 
-middlewareObj.checkIfUserExists = function (req, res, next) => {
+/*middlewareObj.checkIfUserExists = function (req, res, next) => {
    try {
     let userExists = await User.findOne({'email': req.body.email});
  	if(userExists) { 
@@ -68,5 +68,6 @@ middlewareObj.checkIfUserExists = function (req, res, next) => {
         res.redirect("back");
     }
 }
+*/
 
 module.exports = middlewareObj;
