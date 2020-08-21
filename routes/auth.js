@@ -13,7 +13,7 @@ router.get("/register", function(req, res) {
 
 
 
-router.post("/register", function(req, res) {
+router.post("/register", checkIfUserExists, function(req, res) {
 	var newUser = new User({username: req.body.username, email: req.body.email});
     User.register(newUser, req.body.password, function(err, user){
     	if(err){
@@ -49,5 +49,18 @@ router.get("/logout", function(req, res){
 });
 
 
+async checkIfUserExists (req, res, next) => {
+   try {
+    let userExists = await User.findOne({'email': req.body.email});
+ 	if(userExists) { 
+ 		return res.redirect('back');
+ 	} 
+	next();         
+    }
+   catch(err) {
+        console.log(err);
+        res.redirect("back");
+    }
+}
 
 module.exports = router;
