@@ -1,6 +1,6 @@
 var Posts = require("../models/postpage");
 var Comment = require("../models/comment");
-
+var User = require("../models/user");
 //all middleware goes here
 var middlewareObj = {};
 
@@ -55,10 +55,11 @@ middlewareObj.isLoggedIn = function(req, res, next){
 	res.redirect("/login");
 };
 
-/*middlewareObj.checkIfUserExists = function (req, res, next) => {
+middlewareObj.checkIfUserExists = async function (req, res, next) {
    try {
-    let userExists = await User.findOne({'email': req.body.email});
+    let userExists = await  User.findOne({'email': req.body.email});
  	if(userExists) { 
+ 		req.flash("error", "email already exist");
  		return res.redirect('back');
  	} 
 	next();         
@@ -68,6 +69,5 @@ middlewareObj.isLoggedIn = function(req, res, next){
         res.redirect("back");
     }
 }
-*/
 
 module.exports = middlewareObj;
